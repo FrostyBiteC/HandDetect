@@ -466,6 +466,9 @@ async function processFrame() {
         // Clear canvas
         state.ctx.clearRect(0, 0, state.canvas.width, state.canvas.height);
         
+        // Draw video frame to canvas (REQUIRED for camera display)
+        state.ctx.drawImage(state.video, 0, 0, state.canvas.width, state.canvas.height);
+        
         // Draw detection results
         await state.human.draw.all(state.canvas, result);
         
