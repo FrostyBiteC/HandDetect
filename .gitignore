@@ -1,0 +1,9 @@
+# Ignore the human library submodule/cloned repo
+human/
+
+# Common files to ignore
+.DS_Store
+node_modules/
+*.log
+.vscode/
+.idea/

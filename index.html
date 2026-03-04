@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Detection System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">
+                <span class="title-bracket">[</span>
+                HUMAN_DETECTION_SYSTEM
+                <span class="title-bracket">]</span>
+            </h1>
+            <div class="subtitle">Real-time Neural Network Analysis</div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Video Container -->
+            <div class="video-container">
+                <!-- Hidden video element for input source -->
+                <video id="input-video" class="input-video" autoplay playsinline muted></video>
+                
+                <!-- Canvas for rendering detection results -->
+                <canvas id="output-canvas" class="output-canvas"></canvas>
+                
+                <!-- HUD Overlay -->
+                <div id="hud-overlay" class="hud-overlay">
+                    <!-- Status Indicator -->
+                    <div class="hud-section status-section">
+                        <div class="hud-label">SYSTEM STATUS</div>
+                        <div id="status-indicator" class="status-indicator">
+                            <span class="status-dot"></span>
+                            <span id="status-text" class="status-text">Initializing...</span>
+                        </div>
+                    </div>
+
+                    <!-- FPS Counter -->
+                    <div class="hud-section fps-section">
+                        <div class="hud-label">FRAME RATE</div>
+                        <div id="fps-counter" class="fps-counter">
+                            <span id="fps-value">0</span>
+                            <span class="fps-unit">FPS</span>
+                        </div>
+                    </div>
+
+                    <!-- Detection Counters -->
+                    <div class="hud-section detection-section">
+                        <div class="hud-label">DETECTIONS</div>
+                        <div class="detection-counters">
+                            <div class="counter-item">
+                                <span class="counter-icon">👤</span>
+                                <div class="counter-info">
+                                    <span class="counter-label">FACES</span>
+                                    <span id="face-count" class="counter-value">0</span>
+                                </div>
+                            </div>
+                            <div class="counter-item">
+                                <span class="counter-icon">✋</span>
+                                <div class="counter-info">
+                                    <span class="counter-label">HANDS</span>
+                                    <span id="hand-count" class="counter-value">0</span>
+                                </div>
+                            </div>
+                            <div class="counter-item">
+                                <span class="counter-icon">🧍</span>
+                                <div class="counter-info">
+                                    <span class="counter-label">BODIES</span>
+                                    <span id="body-count" class="counter-value">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Telemetry Panel -->
+                    <div class="hud-section telemetry-section">
+                        <div class="hud-label">TELEMETRY</div>
+                        <div class="telemetry-data">
+                            <div class="telemetry-item">
+                                <span class="telemetry-key">Human Ver:</span>
+                                <span id="human-version" class="telemetry-value">--</span>
+                            </div>
+                            <div class="telemetry-item">
+                                <span class="telemetry-key">Models:</span>
+                                <span id="model-status" class="telemetry-value">Loading...</span>
+                            </div>
+                            <div class="telemetry-item">
+                                <span class="telemetry-key">Backend:</span>
+                                <span id="backend-info" class="telemetry-value">--</span>
+                            </div>
+                            <div class="telemetry-item">
+                                <span class="telemetry-key">Resolution:</span>
+                                <span id="resolution-info" class="telemetry-value">--</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loading Overlay -->
+                <div id="loading-overlay" class="loading-overlay">
+                    <div class="loading-content">
+                        <div class="loading-spinner"></div>
+                        <div class="loading-text">SYSTEM INITIALIZING...</div>
+                        <div id="loading-detail" class="loading-detail">Loading neural models</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Control Bar -->
+            <div class="control-bar">
+                <button id="btn-camera" class="control-btn primary" disabled>
+                    <span class="btn-icon">▶</span>
+                    <span class="btn-text">START CAMERA</span>
+                </button>
+                <button id="btn-flip" class="control-btn secondary" disabled>
+                    <span class="btn-icon">🔄</span>
+                    <span class="btn-text">FLIP CAMERA</span>
+                </button>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-info">
+                <span class="footer-item">Powered by Human.js</span>
+                <span class="footer-separator">|</span>
+                <span class="footer-item">TensorFlow.js Backend</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Import script as ES Module -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
