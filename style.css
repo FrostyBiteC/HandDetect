@@ -18,10 +18,12 @@
     --border-color: #2a2a2a;
     --success-green: #00ff88;
     --error-red: #ff4444;
+    --warning-yellow: #fbbf24;
     
     --font-mono: 'JetBrains Mono', 'Roboto Mono', 'Courier New', monospace;
     
     --glow-cyan: 0 0 10px var(--neon-cyan), 0 0 20px rgba(0, 242, 255, 0.3);
+    --glow-yellow: 0 0 10px var(--warning-yellow), 0 0 20px rgba(251, 191, 36, 0.3);
     --glow-amber: 0 0 10px var(--alert-amber), 0 0 20px rgba(255, 170, 0, 0.3);
     --glow-green: 0 0 10px var(--success-green), 0 0 20px rgba(0, 255, 136, 0.3);
 }
@@ -196,6 +198,12 @@ html, body {
     background: var(--neon-cyan);
     box-shadow: var(--glow-cyan);
     animation: pulse 1s infinite;
+}
+
+.status-indicator.loading .status-dot {
+    background: var(--warning-yellow);
+    box-shadow: var(--glow-yellow);
+    animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
